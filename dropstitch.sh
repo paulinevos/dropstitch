@@ -5,9 +5,8 @@ if ! git rev-parse --git-dir > /dev/null 2>&1; then
     exit 1
 fi
 
-reflog=$(git reflog 2>&1)
 
-for line in $reflog
+git reflog | while read line
 do
     echo $line
 done
