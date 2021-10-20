@@ -8,7 +8,7 @@ ref_id_regex="^(([a-z]|[0-9]){7}).+$"
 reset=false
 
 confirm_reset () {
-    read -p "Undo $1? [y/n]: " input </dev/tty
+    read -p "Undo $1? This will also undo anything you did after. [y/n]: " input </dev/tty
 
     if [[  $input =~ ^y|yes$ ]]
     then
