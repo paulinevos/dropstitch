@@ -2,10 +2,8 @@
 rebase_regex="^([a-z]|[0-9]){7} HEAD@{[0-9]+}: rebase \(start\).+$"
 ref_id_regex="^(([a-z]|[0-9]){7}).+$"
 
-if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    echo "You are not inside a Git repository."
-    exit 1
-fi
+. ./utils/ensure-git-repo.sh
+. ./utils/theme.sh
 
 reset=false
 
