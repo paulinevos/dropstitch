@@ -9,7 +9,7 @@ fi
 
 reset=false
 
-confirm () {
+confirm_reset () {
     read -p "Undo $1? [y/n]: " input </dev/tty
 
     if [[  $input =~ ^y|yes$ ]]
@@ -29,7 +29,7 @@ do
     if [[ $reset != false ]]
     then
         ref_id=`echo $line | sed -E "s/$ref_id_regex|.*/\1/"`
-        confirm "rebase" $ref_id
+        confirm_reset "rebase" $ref_id
     else
         if [[ $line =~ $rebase_regex ]]
         then
